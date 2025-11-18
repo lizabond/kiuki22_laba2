@@ -1,0 +1,23 @@
+.flex-container {
+    width: 350px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background: navy;
+}
+
+.tall {
+    height: 220px;
+}
+
+.spacer {
+    width: 100%;
+    height: 10px;
+}
