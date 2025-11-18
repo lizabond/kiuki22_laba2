@@ -1,9 +1,70 @@
+/* Загальний стиль сторінки */
+body {
+    background: #f7e4b0;
+    font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.title {
+    color: darkblue;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+/* ============================
+   Завдання 1: Абсолютне позиціонування
+   ============================ */
+#abs-box {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgb(255, 230, 140);
+    padding: 10px;
+    border: 2px solid orange;
+}
+
+
+/* ============================
+   Завдання 2: Список з власним маркером
+   ============================ */
+ul.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.custom-list li {
+    margin: 6px 0;
+    padding-left: 25px;
+    background-image: url("marker.png");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: 0 3px;
+}
+
+
+/* ============================
+   Завдання 3: Float елементи
+   ============================ */
+.float-img {
+    float: left;
+    width: 150px;
+    margin: 0 15px 10px 0;
+}
+
+.float-text {
+    overflow: auto; 
+}
+
+
+/* ============================
+   Завдання 4: Flexbox композиція
+   ============================ */
 .flex-container {
     width: 350px;
     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 15px;
 }
 
