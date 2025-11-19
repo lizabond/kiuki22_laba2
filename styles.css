@@ -1,84 +1,155 @@
-/* Загальний стиль сторінки */
+/* kss-style.css — зовнішній стиль (ПРИКЛАД 1: зовнішній CSS) */
+
+/* --- Загальні стилі сторінки --- */
 body {
-    background: #f7e4b0;
-    font-family: Arial, sans-serif;
+    background: #feeecf;
+    color: #222;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.45;
+    padding: 12px;
 }
 
-/* Заголовок */
-.title {
-    color: darkblue;
-    font-size: 24px;
-    margin-bottom: 10px;
+/* Блок для кожного пункту лабораторної */
+.task-block {
+    background: white;
+    border: 1px solid #e7d1a8;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
 
+/* Селектор по тегу (п) — приклад */
+p {
+    font-size: 15px;
+    margin: 8px 0;
+}
 
-/* ============================
-   Завдання 1: Абсолютне позиціонування
-   ============================ */
-#abs-box {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgb(255, 230, 140);
+/* Селектор класу */
+.highlight {
+    background: linear-gradient(90deg,#fff6e6,#fff0f8);
+    padding: 8px;
+    border-left: 4px solid #e59bd7;
+}
+
+/* Селектор id */
+#unique {
+    font-weight: 700;
+    color: #1b3a5a;
+}
+
+/* --- Позиціонування (relative / absolute) --- */
+.pos-demo .pos-parent {
+    position: relative; /* відправна точка для абсолютного дочірнього елемента */
+    height: 120px;
+    border: 1px dashed #d4c7b0;
     padding: 10px;
-    border: 2px solid orange;
+    margin-top: 8px;
+    background: #fffaf5;
+}
+.pos-demo .pos-child {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background: #e6f7ff;
+    padding: 6px 8px;
+    border-radius: 4px;
+    border: 1px solid #cfe8ff;
 }
 
-
-/* ============================
-   Завдання 2: Список з власним маркером
-   ============================ */
-ul.custom-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-ul.custom-list li {
-    margin: 6px 0;
-    padding-left: 25px;
-    background-image: url("marker.png");
-    background-size: 18px;
-    background-repeat: no-repeat;
-    background-position: 0 3px;
-}
-
-
-/* ============================
-   Завдання 3: Float елементи
-   ============================ */
-.float-img {
+/* --- Float приклад --- */
+.float-demo .float-box {
     float: left;
     width: 150px;
-    margin: 0 15px 10px 0;
+    height: 100px;
+    margin-right: 12px;
+    margin-bottom: 10px;
+    background: linear-gradient(#ffffff,#e6f0ff);
+    border: 2px solid #c8d4ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+}
+.clear { clear: both; }
+
+/* --- Список з власним маркером (генерація маркера через ::before) --- */
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 10px 0;
+}
+.custom-list li {
+    position: relative;
+    padding-left: 26px;
+    margin: 8px 0;
+}
+.custom-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(#001a66,#00144d);
+    box-shadow: 0 0 0 2px #ffffff inset;
+    border-radius: 2px;
 }
 
-.float-text {
-    overflow: auto; 
-}
-
-
-/* ============================
-   Завдання 4: Flexbox композиція
-   ============================ */
-.flex-container {
-    width: 350px;
-    margin-top: 30px;
+/* --- Flexbox grid (контейнер) --- */
+.flex-grid {
+    /* Використовуємо Flexbox і перенос рядків */
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 12px;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 420px;
+    margin: 12px auto;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e3d3a8;
 }
 
-.box {
-    width: 100px;
-    height: 100px;
-    background: navy;
+/* Базові стилі для осередків */
+.flex-grid .cell {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background: #06145a;
+    color: #fff;
+    min-width: 100px;
+    min-height: 80px;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.tall {
-    height: 220px;
+/* Центральний високий елемент .tall робить його вищим */
+.flex-grid .cell.tall {
+    min-height: 190px; /* значно вища за інші */
+    min-width: 100px;
 }
 
-.spacer {
-    width: 100%;
-    height: 10px;
+/* Налаштування порядку (щоб елементи стояли у потрібному місці при wrap)
+   Тут не обов'язково, але дає контроль над розміщенням */
+.c1 { order: 1; }
+.c2 { order: 2; }
+.c3 { order: 3; }
+.c4 { order: 4; } /* високий центральний */
+.c5 { order: 5; }
+.c6 { order: 6; }
+.c7 { order: 7; }
+.c8 { order: 8; }
+.c9 { order: 9; }
+
+/* Адаптивність: при вузьких екранах зменшимо мінімальні розміри */
+@media (max-width: 520px) {
+    .flex-grid .cell { min-width: 86px; min-height: 66px; font-size:16px; }
+    .flex-grid .cell.tall { min-height: 140px; }
+    .float-demo .float-box { width: 110px; height: 80px; }
 }
+
+/* Маленькі пояснювальні нотатки */
+.note-small { font-size: 13px; color: #4f4f4f; margin-top:8px; }
