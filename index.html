@@ -1,143 +1,117 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Лабораторна робота №2 — Каскадні таблиці стилів</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Лабораторна робота: CSS та позиціонування</title>
 
-    <!-- ПРИКЛАД 2: внутрішній стиль у <style> (демонструємо другий спосіб підключення CSS) -->
-    <style>
-        /* Селектор по тегу та id, приклад позиціонування */
-        header {
-            background: #f4e0b5;
-            padding: 10px 16px;
-            border-bottom: 2px solid #d0b67a;
-        }
-        /* Приклад id-селектора */
-        #task-intro {
-            max-width: 900px;
-            margin: 12px auto;
-            font-family: Georgia, "Times New Roman", serif;
-        }
-        /* Фіксований елемент (fixed) — приклад position: fixed */
-        #fixed-note {
-            position: fixed;
-            right: 12px;
-            bottom: 12px;
-            background: #fff7e6;
-            border: 1px solid #e0caa2;
-            padding: 8px 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            font-size: 13px;
-        }
-    </style>
+  <!-- 1) Приклад використання стилів через контейнер <style> у <head> -->
+  <style>
+    /* --- Завдання: показати використання <style> --- */
+    body { font-family: Arial, "Segoe UI", sans-serif; background:#fdf0c9; margin:20px; color:#222; }
+    h1 { margin-bottom: 6px; }
+    section { background: #fff7e0; padding: 12px; border: 1px solid #e0d4b0; margin-bottom:16px; border-radius:6px; }
+    .note { font-size:0.92rem; color:#555; margin-bottom:8px; }
+  </style>
 
-    <!-- ПРИКЛАД 3: підключення зовнішнього CSS -->
-    <link rel="stylesheet" href="kss-style.css">
+  <!-- Підключаємо зовнішній CSS файл -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <h1>Лабораторна робота — CSS, селектори, позиціонування</h1>
 
-<header>
-    <h1>Лабораторна робота №2 — Каскадні таблиці стилів</h1>
-    <p>Коротко: показати способи підключення CSS, селектори, позиціонування, float, Flexbox та інше.</p>
-</header>
+  <!-- --- Завдання: inline-стиль (демонстрація) --- -->
+  <section id="task-inline">
+    <h2>Завдання: Inline-опис стилю</h2>
+    <p class="note">Цей абзац стилізовано через атрибут <code>style</code> (inline).</p>
+    <p style="background:#fff; padding:8px; border-left:6px solid #ffb74d;">
+      Це приклад inline-стилю — властивості записані безпосередньо в елементі через <code>style="..."</code>.
+    </p>
+  </section>
 
-<main id="task-intro">
+  <!-- --- Завдання: селектори (tag, class, id) --- -->
+  <section id="task-selectors">
+    <h2>Завдання: Селектори тегів, класів, ідентифікаторів</h2>
+    <p class="note">Показано: селектор тега (<code>p</code>), класу (<code>.highlight</code>) та id (<code>#uniqueBox</code>).</p>
 
-    <!-- 1) Демонстрація inline-стилю -->
-    <section class="task-block" id="task-inline">
-        <h2>Пункт: Inline-стиль</h2>
-        <p style="color: #6b2e8a; background:#f2eafd; padding:6px; display:inline-block;">
-            Це приклад <strong>inline</strong>-стилю (атрибут <code>style</code> у тегу).
-        </p>
-    </section>
+    <p>Цей абзац форматовано селектором тега <code>p</code> у зовнішньому CSS.</p>
 
-    <!-- 2) Демонстрація селекторів: тег, клас, id -->
-    <section class="task-block" id="task-selectors">
-        <h2>Пункт: Селектори (тег / клас / id)</h2>
-        <p>Селектор за тегом — цей абзац стилізований стилями, заданими для <code>p</code> у CSS-файлі.</p>
-        <p class="highlight">Селектор класу — цей абзац має клас <code>.highlight</code>.</p>
-        <p id="unique">Селектор id — цей абзац має id <code>#unique</code>.</p>
-    </section>
+    <p class="highlight">Цей абзац має клас <code>.highlight</code> — приклад селектора класу.</p>
 
-    <!-- 3) Приклад позиціонування: relative та absolute -->
-    <section class="task-block" id="task-position">
-        <h2>Пункт: Position (relative / absolute / fixed)</h2>
-        <p>Контейнер нижче — відносно позиціонований, а всередині нього абсолютний елемент зміщено.</p>
+    <div id="uniqueBox">Це блок з id <code>#uniqueBox</code>.</div>
+  </section>
 
-        <div class="pos-demo">
-            <div class="pos-parent">
-                <p>Це батьківський блок (position: relative).</p>
-                <div class="pos-child">Абсолютно позиціонований елемент (position: absolute)</div>
-            </div>
-        </div>
-    </section>
+  <!-- --- Завдання: позиціонування (absolute, relative, fixed) --- -->
+  <section id="task-position">
+    <h2>Завдання: Позиціонування</h2>
+    <p class="note">Приклади: відносне (relative), абсолютне (absolute), фіксоване (fixed).</p>
 
-    <!-- 4) Приклад float -->
-    <section class="task-block" id="task-float">
-        <h2>Пункт: Float (обтікання)</h2>
-        <div class="float-demo">
-            <div class="float-box">box з float: left</div>
-            <p>Цей текст обтікає плаваючий блок зліва. Тут показано властивість <code>float</code> практично — використовують для навігацій або обтікання зображень текстом.</p>
-            <p>Ще трохи тексту щоб було видно обтікання і перенос рядків при зменшенні ширини вікна.</p>
-            <div class="clear"></div>
-        </div>
-    </section>
+    <div class="pos-wrapper">
+      <div class="pos-relative">relative (контейнер)</div>
+      <div class="pos-absolute">absolute (зсунуте всередині relative)</div>
+    </div>
 
-    <!-- 5) Список з власним маркером (згенеровано CSS) -->
-    <section class="task-block" id="task-list">
-        <h2>Пункт: Список з власним маркером (генеруємо маркер за допомогою CSS)</h2>
-        <p>Список нижче використовує <code>li::before</code> для створення власного графічного маркера (маленький квадрат).</p>
-        <ul class="custom-list">
-            <li>Пункт списку A</li>
-            <li>Пункт списку B</li>
-            <li>Пункт списку C</li>
-        </ul>
-    </section>
+    <p style="margin-top:14px;">Нижче — фіксований блок у правому нижньому куті (fixed):</p>
+    <div class="fixed-box">fixed: правий-нижній кут</div>
+  </section>
 
-    <!-- 6) Контейнер з елементами за зразком (використовуємо Flexbox) -->
-    <section class="task-block" id="task-flexbox">
-        <h2>Пункт: Контейнер з елементами — реалізовано Flexbox</h2>
-        <p>Нижче — контейнер, елементи якого розташовані за зразком (див. малюнок у завданні). Це здійснено через Flexbox з заданням порядку (order) та розмірів елементів.</p>
+  <!-- --- Завдання: float (обтікання) --- -->
+  <section id="task-float">
+    <h2>Завдання: Властивість float</h2>
+    <p class="note">Картинка плаває ліворуч, текст обтікає її. Після блоку застосовано clearfix.</p>
 
-        <div class="flex-grid" aria-label="Flexbox grid з 9 елементів">
-            <div class="cell c1">1</div>
-            <div class="cell c2">2</div>
-            <div class="cell c3">3</div>
+    <img src="https://via.placeholder.com/140" alt="placeholder" class="float-img" />
+    <p>
+      Це демонстрація властивості <code>float</code>. Текст тут обтікає зображення. Важливо після плаваючих елементів очищати потік
+      (clearfix) або використовувати <code>overflow:auto;</code> на контейнері.
+    </p>
+    <div class="clearfix"></div>
+  </section>
 
-            <!-- центральний високий елемент (щоб бути високим, зробимо більшу висоту) -->
-            <div class="cell c4 tall">4</div>
+  <!-- --- Завдання: список з власним маркером --- -->
+  <section id="task-list">
+    <h2>Завдання: Список із власним маркером</h2>
+    <p class="note">Три способи: <code>list-style-image</code>, псевдоелемент <code>::marker</code> з emoji, та псевдоелемент <code>::before</code> для повного контролю.</p>
 
-            <div class="cell c5">5</div>
-            <div class="cell c6">6</div>
+    <h3>1) list-style-image (покладіть marker.png поряд із файлами або змініть шлях)</h3>
+    <ul class="custom-marker-image">
+      <li>Пункт зі зображенням-маркера (list-style-image)</li>
+      <li>Ще один пункт</li>
+      <li>Третій пункт</li>
+    </ul>
 
-            <div class="cell c7">7</div>
-            <div class="cell c8">8</div>
-            <div class="cell c9">9</div>
-        </div>
+    <h3>2) ::marker з символом (генерується CSS)</h3>
+    <ul class="custom-marker-emoji">
+      <li>Пункт з emoji-маркером</li>
+      <li>Ще пункт</li>
+    </ul>
 
-        <p class="note-small">Пояснення: елементи вирівняні та переносяться; центральний блок позначено класом <code>.tall</code>.</p>
-    </section>
+    <h3>3) Псевдоелемент ::before для повного контролю (використовуємо квадрат)</h3>
+    <ul class="custom-marker-box">
+      <li>Пункт із псевдоелементом</li>
+      <li>Другий пункт</li>
+      <li>Третій пункт</li>
+    </ul>
+  </section>
 
-    <!-- 7) Нотатка з поясненням зв'язків (що і де виконувала студентка) -->
-    <section class="task-block" id="task-explain">
-        <h2>Пункт: Документація — що я зробила</h2>
-        <ol>
-            <li>Створила HTML-файл та зовнішній CSS (<code>kss-style.css</code>).</li>
-            <li>Показала три способи підключення CSS: inline (рядок у параграфі), &lt;style&gt; в head та підключення зовнішнього файлу.</li>
-            <li>Демонстрація селекторів: тег (p), клас (<code>.highlight</code>), id (<code>#unique</code>).</li>
-            <li>Показана робота з <code>position</code> (relative/absolute/fixed) і <code>float</code>.</li>
-            <li>Реалізовано список із власним маркером та Flexbox-контейнер, що відповідає зображенню варіанту.</li>
-        </ol>
-    </section>
+  <!-- --- Завдання: контейнер з елементами згідно з малюнком (Flexbox) --- -->
+  <section id="task-flexbox">
+    <h2>Завдання: Контейнер із елементами згідно з малюнком (Flexbox)</h2>
+    <p class="note">Контейнер розташовано як на малюнку: верхній ряд (ліва клітинка, центральна висока, права клітинка), нижній ряд — три квадрати. Використано Flexbox і властивість <code>order</code>.</p>
 
-</main>
+    <div class="flex-grid">
+      <div class="cell cell-1">1</div>
+      <div class="cell cell-2 tall">2</div>
+      <div class="cell cell-3">3</div>
+      <div class="cell cell-4">4</div>
+      <div class="cell cell-5">5</div>
+      <div class="cell cell-6">6</div>
+    </div>
+  </section>
 
-<div id="fixed-note">Приклад: position: fixed (права-кінцева підказка).</div>
-
-<footer style="text-align:center; padding:10px; margin-top:22px;">
-    <small>Виконав(ла): Єлизавета Бондаренко — Лабораторна робота №2 (приклад з демонстрацією CSS)</small>
-</footer>
-
+  <!-- --- Кінець документа --- -->
+  <footer style="margin-top:18px; font-size:0.9rem; color:#666;">
+    Готово — у файлі <code>style.css</code> знаходяться більшість стилів. Перевірте відображення у різних браузерах.
+  </footer>
 </body>
 </html>

@@ -1,155 +1,157 @@
-/* kss-style.css — зовнішній стиль (ПРИКЛАД 1: зовнішній CSS) */
+/* style.css — зовнішня таблиця стилів
+   Тут реалізовано більшість прикладів: селектори, float, позиціонування, маркери, flexbox */
 
-/* --- Загальні стилі сторінки --- */
-body {
-    background: #feeecf;
-    color: #222;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.45;
-    padding: 12px;
-}
+/* --- Селектори: тег, клас, id --- */
+/* селектор тега p (впливає на всі абзаци) */
+p { line-height: 1.5; }
 
-/* Блок для кожного пункту лабораторної */
-.task-block {
-    background: white;
-    border: 1px solid #e7d1a8;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-}
-
-/* Селектор по тегу (п) — приклад */
-p {
-    font-size: 15px;
-    margin: 8px 0;
-}
-
-/* Селектор класу */
+/* селектор класу */
 .highlight {
-    background: linear-gradient(90deg,#fff6e6,#fff0f8);
-    padding: 8px;
-    border-left: 4px solid #e59bd7;
+  background:#fff1b8;
+  padding:8px;
+  border:1px dashed #ffd166;
 }
 
-/* Селектор id */
-#unique {
-    font-weight: 700;
-    color: #1b3a5a;
+/* селектор id */
+#uniqueBox {
+  padding:8px;
+  border-radius:4px;
+  border:1px solid #d6c9a0;
+  background:#fffaf0;
+  width:fit-content;
 }
 
-/* --- Позиціонування (relative / absolute) --- */
-.pos-demo .pos-parent {
-    position: relative; /* відправна точка для абсолютного дочірнього елемента */
-    height: 120px;
-    border: 1px dashed #d4c7b0;
-    padding: 10px;
-    margin-top: 8px;
-    background: #fffaf5;
-}
-.pos-demo .pos-child {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    background: #e6f7ff;
-    padding: 6px 8px;
-    border-radius: 4px;
-    border: 1px solid #cfe8ff;
+/* --- Позиціонування --- */
+.pos-wrapper {
+  position: relative; /* контейнер для абсолютного позиціонування */
+  border:1px solid #e0d4b0;
+  padding:18px;
+  height:120px;
+  margin-top:10px;
+  background:#fff;
 }
 
-/* --- Float приклад --- */
-.float-demo .float-box {
-    float: left;
-    width: 150px;
-    height: 100px;
-    margin-right: 12px;
-    margin-bottom: 10px;
-    background: linear-gradient(#ffffff,#e6f0ff);
-    border: 2px solid #c8d4ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-}
-.clear { clear: both; }
-
-/* --- Список з власним маркером (генерація маркера через ::before) --- */
-.custom-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 10px 0;
-}
-.custom-list li {
-    position: relative;
-    padding-left: 26px;
-    margin: 8px 0;
-}
-.custom-list li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 16px;
-    height: 16px;
-    background: linear-gradient(#001a66,#00144d);
-    box-shadow: 0 0 0 2px #ffffff inset;
-    border-radius: 2px;
+.pos-relative {
+  position:relative;
+  margin-bottom:6px;
+  font-weight:600;
 }
 
-/* --- Flexbox grid (контейнер) --- */
+.pos-absolute {
+  position:absolute;
+  top:38px;
+  left:18px;
+  background:#cfe8ff;
+  padding:6px 10px;
+  border-radius:4px;
+  border:1px solid #8fb7ff;
+}
+
+/* fixed приклад */
+.fixed-box {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  background: #fff7e6;
+  border:1px solid #f0c27b;
+  padding:6px 10px;
+  border-radius:6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* --- Float (обтікання) --- */
+.float-img {
+  float:left;
+  margin-right:12px;
+  margin-bottom:8px;
+  width:140px;
+  height:auto;
+  border:1px solid #ddd;
+  display:block;
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* --- Список: власні маркери --- */
+
+/* 1) list-style-image (якщо є marker.png у тій же папці) */
+.custom-marker-image {
+  list-style-image: url('marker.png'); /* якщо маркеру нема — браузер покаже стандартний */
+  margin-left: 18px;
+}
+
+/* 2) ::marker з emoji (працює в сучасних браузерах) */
+.custom-marker-emoji {
+  list-style: none;
+  padding-left: 0;
+}
+.custom-marker-emoji li::marker {
+  content: "■ "; /* або emoji: "🔹 " */
+  color: #092b6a;
+  font-weight: 700;
+  font-size: 1.0em;
+}
+
+/* 3) псевдоелемент ::before для повного контролю */
+.custom-marker-box { list-style: none; padding-left: 0; }
+.custom-marker-box li {
+  position: relative;
+  padding-left: 26px;
+  margin:6px 0;
+}
+.custom-marker-box li::before {
+  content: "";
+  width:12px;
+  height:12px;
+  display:inline-block;
+  position:absolute;
+  left:6px;
+  top:6px;
+  background:#08256b;
+  border-radius:2px;
+}
+
+/* --- Flexbox: контейнер згідно з малюнком --- */
 .flex-grid {
-    /* Використовуємо Flexbox і перенос рядків */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    align-items: stretch;
-    max-width: 420px;
-    margin: 12px auto;
-    padding: 12px;
-    background: #ffffff;
-    border: 1px solid #e3d3a8;
+  display:flex;
+  flex-wrap: wrap;
+  width:360px;               /* можна змінити під потрібний розмір */
+  gap:14px;
+  background:#fff;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:6px;
 }
 
-/* Базові стилі для осередків */
-.flex-grid .cell {
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    background: #06145a;
-    color: #fff;
-    min-width: 100px;
-    min-height: 80px;
-    border-radius: 4px;
-    font-size: 18px;
-    font-weight: 700;
+/* Базові стилі "клітинок" */
+.cell {
+  background:#081a66; /* темно-синій */
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  border-radius:4px;
 }
 
-/* Центральний високий елемент .tall робить його вищим */
-.flex-grid .cell.tall {
-    min-height: 190px; /* значно вища за інші */
-    min-width: 100px;
-}
+/* Позиціонування елементів використовується через order */
+/* Верхній ряд: ліво, центр (високий), право */
+.cell-1 { order:1; width:100px; height:100px; }
+.cell-2 { order:2; width:100px; /* поєднаємо висоту через клас .tall */ }
+.cell-2.tall { height:220px; /* високий центр */ align-self:flex-start; }
+.cell-3 { order:3; width:100px; height:100px; }
 
-/* Налаштування порядку (щоб елементи стояли у потрібному місці при wrap)
-   Тут не обов'язково, але дає контроль над розміщенням */
-.c1 { order: 1; }
-.c2 { order: 2; }
-.c3 { order: 3; }
-.c4 { order: 4; } /* високий центральний */
-.c5 { order: 5; }
-.c6 { order: 6; }
-.c7 { order: 7; }
-.c8 { order: 8; }
-.c9 { order: 9; }
+/* Нижній ряд: три квадрати */
+.cell-4 { order:4; width:100px; height:100px; }
+.cell-5 { order:5; width:100px; height:100px; }
+.cell-6 { order:6; width:100px; height:100px; }
 
-/* Адаптивність: при вузьких екранах зменшимо мінімальні розміри */
-@media (max-width: 520px) {
-    .flex-grid .cell { min-width: 86px; min-height: 66px; font-size:16px; }
-    .flex-grid .cell.tall { min-height: 140px; }
-    .float-demo .float-box { width: 110px; height: 80px; }
-}
+/* Якщо ширина контейнера зміниться, елементи поводитимуться адаптивно за flex-wrap */
 
-/* Маленькі пояснювальні нотатки */
-.note-small { font-size: 13px; color: #4f4f4f; margin-top:8px; }
+/* Дрібні поліпшення для читабельності */
+section h2 { margin:0 0 8px 0; font-size:1.05rem; color:#0c3a6b; }
+.note { color:#666; font-size:0.92rem; margin-bottom:8px; }
