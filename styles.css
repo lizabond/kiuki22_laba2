@@ -1,134 +1,102 @@
-/* Файл: style.css
-   Задача: зовнішні стилі (підключені у index.html)
-*/
-
-/* ========== Список з власним маркером (ЗАВДАННЯ 3) ========== */
-ul.custom-marker {
-    list-style: none; /* прибираємо стандартні маркери */
-    padding-left: 0;
-}
-ul.custom-marker li {
-    padding: 6px 8px;
-    margin: 6px 0;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
+/* ============ Завдання 1 — зовнішній стиль ============ */
+#external-style-text {
+    color: purple;
+    font-style: italic;
 }
 
-/* CSS-генерований маркер: використовуємо ::before */
-ul.custom-marker li::before {
-    content: "";
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background: navy;
-    margin-right: 10px;
-    vertical-align: middle;
-    border-radius: 2px;
-    box-shadow: 0 0 0 3px rgba(0,0,0,0.03);
+/* ============ Завдання 2 — селектори ============ */
+
+/* селектор тегу */
+span {
+    color: red;
 }
 
-/* ========== FLOAT приклад (ЗАВДАННЯ 4) ========== */
-.float-img {
-    float: left; /* зліва обтікання текстом */
-    margin: 6px 12px 12px 0;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border: 3px solid #eee;
-    border-radius: 4px;
+/* селектор класу */
+.selector-box {
+    background: lightblue;
+    padding: 10px;
+    margin: 5px 0;
 }
 
-/* clearfix після float */
-.clearfix {
-    clear: both;
+/* селектор id */
+#selector-id {
+    background: lightgreen;
+    padding: 10px;
+    margin: 5px 0;
 }
 
-/* ========== Позиціонування (ЗАВДАННЯ 5) ========== */
-.position-demo .rel-box {
-    position: relative; /* контейнер для абсолютного елемента */
-    border: 1px dashed #bbb;
-    padding: 14px;
-    margin-bottom: 12px;
-    background: #fffef8;
-    min-height: 80px;
+/* виділення тексту */
+.highlight {
+    background: yellow;
 }
 
-.position-demo .rel-box .abs-box {
+
+/* ============ Завдання 3 — власний маркер ============ */
+
+.custom-list li {
+    list-style: none;
+    padding-left: 25px;
+    background: url('https://cdn-icons-png.flaticon.com/512/32/32195.png') no-repeat left center;
+    background-size: 18px;
+    margin: 4px 0;
+}
+
+
+/* ============ Завдання 4 — position ============ */
+
+.position-example {
+    width: 200px;
+    height: 50px;
+    background: orange;
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #ffd;
-    border: 1px solid #d1c08c;
-    padding: 6px 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    top: 500px;
+    left: 50px;
+    padding: 10px;
 }
 
-/* fixed кнопка */
-#fixed-btn {
-    position: fixed;
-    right: 12px;
-    bottom: 12px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-    background: #0b66c3;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(11,102,195,0.2);
+
+/* ============ Завдання 5 — float ============ */
+
+.float-img {
+    float: left;
+    margin: 10px;
+    border: 2px solid #000;
 }
 
-/* ========== Flexbox макет (ЗАВДАННЯ 6) ========== */
-/* контейнер — вирівнюємо колонки */
-.flex-layout {
+
+/* ============ Завдання 6 — Flexbox (рисунок із завдання) ============ */
+
+.flex-layout.img-layout {
     display: flex;
-    gap: 12px;
-    align-items: flex-start; /* верхнє вирівнювання колонок */
-    margin: 12px 0 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 0;
 }
 
-/* колонка — вертикальна осередок для блоків */
-.flex-layout .col {
+/* Колонки */
+.flex-layout.img-layout .col {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 20px;
+}
+
+/* Центральна колонка */
+.flex-layout.img-layout .col-center {
+    display: flex;
     align-items: center;
-    flex: 1 1 0; /* кожна колонка займає приблизно рівну ширину */
-    min-width: 80px;
 }
 
-/* маленькі квадрати */
-.square {
-    width: 80px;
-    height: 80px;
+/* Квадрати */
+.sq {
+    width: 120px;
+    height: 120px;
     background: navy;
-    border: 4px solid #0b2b6a;
-    border-radius: 2px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.15) inset;
 }
 
-/* деякі квадрати менші (використано для вторинних позицій) */
-.square.small {
-    width: 70px;
-    height: 70px;
-}
-
-/* вертикально витягнутий прямокутник в центрі (tall) */
-.tall-rect {
-    width: 80px;
-    height: 190px; /* витягнута висота */
+/* Великий вертикальний прямокутник */
+.rect-big {
+    width: 120px;
+    height: 260px;
     background: navy;
-    border: 4px solid #0b2b6a;
-    border-radius: 2px;
 }
-
-/* Адаптація для вузьких екранів — колонки під один рядок або в стовпчик */
-@media (max-width: 600px) {
-    .flex-layout {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* Невеликі декоративні налаштування загального вигляду сторінки */
-#main-container { max-width: 980px; margin: 0 auto; }
