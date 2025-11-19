@@ -2,117 +2,88 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Лабораторна робота CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LB2_NewVersion</title>
+
+    <!-- Внутрішній стиль -->
+    <style>
+        .inner-box {
+            background: #f0ffe0;
+            padding: 12px;
+            border: 2px dashed #6a9c43;
+            margin: 20px 0;
+            font-style: italic;
+        }
+    </style>
 
     <!-- Підключення зовнішнього CSS -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Стилі у секції <style> -->
-    <style>
-        /* Заголовок */
-        .title {
-            color: darkblue;
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        /* Власний маркер списку */
-        ul.custom-list {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        ul.custom-list li {
-            margin: 6px 0;
-            padding-left: 25px;
-            background-image: url("marker.png");
-            background-size: 18px;
-            background-repeat: no-repeat;
-            background-position: 0 3px;
-        }
-
-        /* Елемент з абсолютним позиціонуванням */
-        #abs-box {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgb(255, 230, 140);
-            padding: 10px;
-            border: 2px solid orange;
-        }
-
-        /* Float елементи */
-        .float-wrapper {
-            overflow: auto;
-        }
-
-        .float-img {
-            float: left;
-            width: 150px;
-            margin: 0 15px 10px 0;
-            display: block;
-        }
-    </style>
 </head>
 
-<body style="background: #f7e4b0;"> <!-- INLINE-СТИЛЬ -->
+<body>
 
-    <!-- ЗАВДАННЯ: POSITION -->
-    <div id="abs-box">Абсолютне позиціонування</div>
+    <!-- Inline стиль -->
+    <p style="color: purple; font-size: 18px; font-weight: bold;">
+        Це параграф, оформлений <strong>вбудованим (inline) стилем</strong>.
+    </p>
 
-    <h1 class="title">Лабораторна робота з CSS</h1>
+    <!-- Internal стиль -->
+    <div class="inner-box">
+        Цей блок стилізований через тег <strong>style</strong> у head.
+    </div>
 
-    <!-- ЗАВДАННЯ: 2.3 Порядок виконання роботи -->
-    <h2>2.3 Порядок виконання роботи</h2>
-    <p>Створити HTML-документ із довільним вмістом, на якому демонструватиметься використання CSS.</p>
-    <p>Показати такі способи підключення стилів:</p>
+    <!-- External стиль -->
+    <div class="external-block">
+        <p>Цей блок оформлено за допомогою зовнішнього файлу styles.css.</p>
+    </div>
 
-    <ul>
-        <li>inline-опис стилю;</li>
-        <li>контейнер &lt;style&gt; у секції head;</li>
-        <li>підключення зовнішнього CSS-файлу.</li>
-    </ul>
+    <!-- FLOAT -->
+    <h2>Обтікання зображення (float)</h2>
 
-    <p>Використати селектори тегів, класів, id.</p>
-    <p>Додати елемент з position.</p>
-    <p>Додати елемент з float.</p>
-    <p>Додати елементи згідно варіанту.</p>
-
-    <!-- ЗАВДАННЯ: ВЛАСНИЙ МАРКЕР СПИСКУ -->
-    <h2>Завдання 1 — список з кастомним маркером</h2>
-    <ul class="custom-list">
-        <li>Перший пункт</li>
-        <li>Другий пункт</li>
-        <li>Третій пункт</li>
-    </ul>
-
-    <!-- ЗАВДАННЯ: FLOAT -->
-    <h2>Завдання 2 — Використання float</h2>
-
-    <div class="float-wrapper">
-        <img class="float-img" src="https://via.placeholder.com/150/0000AA/ffffff?text=Фото" alt="Фото">
-
+    <div class="float-wrap">
+        <img src="small.png" alt="image" class="float-img">
         <p>
-            Цей текст обтікає зображення. Властивість <b>float</b> дозволяє розташувати елемент
-            зліва або справа, щоб інші елементи обтікали його. Це часто використовують у статтях,
-            новинах, блогах та верстці сторінок. Коли елемент має float, текст стає праворуч,
-            створюючи природний ефект обтікання.
+            Це текст, який обтікає зображення справа. Властивість <b>float</b> дозволяє
+            вирівняти елемент, а сусідні елементи обтекають його. Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Cras vel mauris quis nisi aliquam cursus.
+        </p>
+        <p>
+            Morbi vitae sodales nunc. Vestibulum ante ipsum primis in faucibus orci luctus et
+            ultrices posuere cubilia curae; Integer condimentum euismod sem.
         </p>
     </div>
 
-    <!-- ЗАВДАННЯ: FLEXBOX -->
-    <h2>Завдання 3 — Flexbox фігура (як у варіанті)</h2>
+    <!-- POSITION -->
+    <div class="pos-parent">
+        Батьківський блок із position: relative.
+        <div class="pos-child">
+            Це абсолютний елемент (absolute), який позиціонується зверху справа.
+        </div>
+    </div>
+
+    <!-- CUSTOM LIST -->
+    <h2>Нестандартний список</h2>
+    <ul class="nice-list">
+        <li>Елемент один</li>
+        <li>Елемент два</li>
+        <li>Елемент три</li>
+    </ul>
+
+    <!-- FLEXBOX -->
+    <h2>Flexbox макет</h2>
 
     <div class="flex-container">
-        <div class="box"></div>
-        <div class="box tall"></div>
-        <div class="box"></div>
+        <div class="flex-row">
+            <div class="box"></div>
+            <div class="box tall"></div>
+            <div class="box"></div>
+        </div>
 
-        <div class="spacer"></div>
-
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="flex-row">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
     </div>
 
 </body>
