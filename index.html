@@ -1,117 +1,162 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Лабораторна робота: CSS та позиціонування</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Лабораторна: CSS (варіант) — index.html</title>
 
-  <!-- 1) Приклад використання стилів через контейнер <style> у <head> -->
-  <style>
-    /* --- Завдання: показати використання <style> --- */
-    body { font-family: Arial, "Segoe UI", sans-serif; background:#fdf0c9; margin:20px; color:#222; }
-    h1 { margin-bottom: 6px; }
-    section { background: #fff7e0; padding: 12px; border: 1px solid #e0d4b0; margin-bottom:16px; border-radius:6px; }
-    .note { font-size:0.92rem; color:#555; margin-bottom:8px; }
-  </style>
+    <!-- ==============================
+         ЗАВДАННЯ: Приклад стилів у <style> (в секції заголовка)
+         ============================== -->
+    <style>
+        /* Селектор за тегом */
+        body {
+            font-family: Arial, sans-serif;
+            background: #fde9c8; /* фон сторінки */
+            margin: 20px;
+            color: #111;
+        }
 
-  <!-- Підключаємо зовнішній CSS файл -->
-  <link rel="stylesheet" href="style.css" />
+        h1 { margin-bottom: 0.2em; }
+
+        /* Селектор за класом */
+        .task-title {
+            font-weight: bold;
+            margin-top: 1.2em;
+            margin-bottom: 0.4em;
+            text-decoration: underline;
+        }
+
+        /* Селектор за id */
+        #main-container {
+            border: 1px solid #ddd;
+            padding: 12px;
+            background: #fffaf0;
+        }
+
+        /* Загальні для коду */
+        pre.code {
+            background: #f7f7f7;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            overflow-x: auto;
+        }
+
+    </style>
+
+    <!-- Підключення зовнішнього файлу стилів -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Лабораторна робота — CSS, селектори, позиціонування</h1>
 
-  <!-- --- Завдання: inline-стиль (демонстрація) --- -->
-  <section id="task-inline">
-    <h2>Завдання: Inline-опис стилю</h2>
-    <p class="note">Цей абзац стилізовано через атрибут <code>style</code> (inline).</p>
-    <p style="background:#fff; padding:8px; border-left:6px solid #ffb74d;">
-      Це приклад inline-стилю — властивості записані безпосередньо в елементі через <code>style="..."</code>.
-    </p>
-  </section>
+    <h1>Лабораторна робота: CSS — виконання завдань</h1>
 
-  <!-- --- Завдання: селектори (tag, class, id) --- -->
-  <section id="task-selectors">
-    <h2>Завдання: Селектори тегів, класів, ідентифікаторів</h2>
-    <p class="note">Показано: селектор тега (<code>p</code>), класу (<code>.highlight</code>) та id (<code>#uniqueBox</code>).</p>
+    <!-- ==============================
+         ЗАВДАННЯ 1: Створити HTML-документ із довільним вмістом
+         (показано заголовок і опис)
+         ============================== -->
+    <section id="main-container">
+        <div class="task-title">Завдання 1 — загальна сторінка</div>
+        <p>Цей документ демонструє різні способи використання CSS (inline, &lt;style&gt;, зовнішній файл), селектори, позиціонування, float, а також Flexbox-розташування елементів.</p>
 
-    <p>Цей абзац форматовано селектором тега <code>p</code> у зовнішньому CSS.</p>
+        <!-- ==============================
+             ЗАВДАННЯ 2: ПРИКЛАД inline-опису стилю
+             (цей елемент стилізований inline атрибутом style)
+             ============================== -->
+        <div class="task-title">Завдання 2 — inline-стиль</div>
+        <p style="color: darkgreen; background: #efffe8; padding: 8px; border-left: 4px solid green;">
+            Це приклад <strong>inline</strong>-стилю (атрибут <code>style</code>) — тут задано колір тексту, фон і відступи.
+        </p>
 
-    <p class="highlight">Цей абзац має клас <code>.highlight</code> — приклад селектора класу.</p>
+        <!-- ==============================
+             ЗАВДАННЯ 3: Приклад списку із власним маркером
+             (використовується CSS ::before для створення маркера)
+             ============================== -->
+        <div class="task-title">Завдання 3 — список з власним маркером</div>
+        <p>Нижче неупорядкований список використовує свій маркер (синій квадратик) через CSS.</p>
 
-    <div id="uniqueBox">Це блок з id <code>#uniqueBox</code>.</div>
-  </section>
+        <ul class="custom-marker">
+            <li>Пункт з власним маркером — приклад 1</li>
+            <li>Пункт з власним маркером — приклад 2</li>
+            <li>Пункт з власним маркером — приклад 3</li>
+        </ul>
 
-  <!-- --- Завдання: позиціонування (absolute, relative, fixed) --- -->
-  <section id="task-position">
-    <h2>Завдання: Позиціонування</h2>
-    <p class="note">Приклади: відносне (relative), абсолютне (absolute), фіксоване (fixed).</p>
+        <!-- ==============================
+             ЗАВДАННЯ 4: FLOAT — обтікання зображення текстом
+             ============================== -->
+        <div class="task-title">Завдання 4 — приклад float</div>
 
-    <div class="pos-wrapper">
-      <div class="pos-relative">relative (контейнер)</div>
-      <div class="pos-absolute">absolute (зсунуте всередині relative)</div>
-    </div>
+        <!-- Зображення демонстраційне (замінити на своє, якщо треба) -->
+        <img src="https://via.placeholder.com/150" alt="приклад" class="float-img">
+        <p>
+            Приклад тексту, який обтікає зображення праворуч або зліва, залежно від стилю.
+            Тут використано властивість <code>float</code> у зовнішньому CSS. Після елемента,
+            який плаває, бажано "очистити" потік, що показано наступним блоком з класом clearfix.
+        </p>
 
-    <p style="margin-top:14px;">Нижче — фіксований блок у правому нижньому куті (fixed):</p>
-    <div class="fixed-box">fixed: правий-нижній кут</div>
-  </section>
+        <div class="clearfix"></div>
 
-  <!-- --- Завдання: float (обтікання) --- -->
-  <section id="task-float">
-    <h2>Завдання: Властивість float</h2>
-    <p class="note">Картинка плаває ліворуч, текст обтікає її. Після блоку застосовано clearfix.</p>
+        <!-- ==============================
+             ЗАВДАННЯ 5: приклад позиціонування (relative + absolute + fixed)
+             ============================== -->
+        <div class="task-title">Завдання 5 — позиціонування</div>
 
-    <img src="https://via.placeholder.com/140" alt="placeholder" class="float-img" />
-    <p>
-      Це демонстрація властивості <code>float</code>. Текст тут обтікає зображення. Важливо після плаваючих елементів очищати потік
-      (clearfix) або використовувати <code>overflow:auto;</code> на контейнері.
-    </p>
-    <div class="clearfix"></div>
-  </section>
+        <div class="position-demo">
+            <div class="rel-box">
+                Це відносний контейнер (position: relative).
+                <div class="abs-box">Абсолютно позиціонований (position: absolute)</div>
+            </div>
+            <p>Нижче — кнопка з фіксованим положенням (position: fixed) у правому нижньому куті.</p>
+        </div>
 
-  <!-- --- Завдання: список з власним маркером --- -->
-  <section id="task-list">
-    <h2>Завдання: Список із власним маркером</h2>
-    <p class="note">Три способи: <code>list-style-image</code>, псевдоелемент <code>::marker</code> з emoji, та псевдоелемент <code>::before</code> для повного контролю.</p>
+        <button id="fixed-btn">Фіксована кнопка</button>
 
-    <h3>1) list-style-image (покладіть marker.png поряд із файлами або змініть шлях)</h3>
-    <ul class="custom-marker-image">
-      <li>Пункт зі зображенням-маркера (list-style-image)</li>
-      <li>Ще один пункт</li>
-      <li>Третій пункт</li>
-    </ul>
+        <!-- ==============================
+             ЗАВДАННЯ 6: Flexbox-кімнатка (контейнер з елементами, згідно з малюнком)
+             Використано Flexbox — сторінка містить блок .flex-layout
+             ============================== -->
+        <div class="task-title">Завдання 6 — контейнер з елементами (Flexbox)</div>
+        <p>Тут розташовано блоки, які наближено відповідають малюнку в умові (три колонки, центральний елемент — вертикально витягнутий).</p>
 
-    <h3>2) ::marker з символом (генерується CSS)</h3>
-    <ul class="custom-marker-emoji">
-      <li>Пункт з emoji-маркером</li>
-      <li>Ще пункт</li>
-    </ul>
+        <div class="flex-layout" aria-label="flex-container">
+            <!-- Колонка 1 -->
+            <div class="col">
+                <div class="square"></div>
+                <div class="square small"></div>
+            </div>
 
-    <h3>3) Псевдоелемент ::before для повного контролю (використовуємо квадрат)</h3>
-    <ul class="custom-marker-box">
-      <li>Пункт із псевдоелементом</li>
-      <li>Другий пункт</li>
-      <li>Третій пункт</li>
-    </ul>
-  </section>
+            <!-- Колонка 2 (центральна) -->
+            <div class="col">
+                <div class="tall-rect"></div>
+                <div class="square small"></div>
+            </div>
 
-  <!-- --- Завдання: контейнер з елементами згідно з малюнком (Flexbox) --- -->
-  <section id="task-flexbox">
-    <h2>Завдання: Контейнер із елементами згідно з малюнком (Flexbox)</h2>
-    <p class="note">Контейнер розташовано як на малюнку: верхній ряд (ліва клітинка, центральна висока, права клітинка), нижній ряд — три квадрати. Використано Flexbox і властивість <code>order</code>.</p>
+            <!-- Колонка 3 -->
+            <div class="col">
+                <div class="square"></div>
+                <div class="square small"></div>
+            </div>
+        </div>
 
-    <div class="flex-grid">
-      <div class="cell cell-1">1</div>
-      <div class="cell cell-2 tall">2</div>
-      <div class="cell cell-3">3</div>
-      <div class="cell cell-4">4</div>
-      <div class="cell cell-5">5</div>
-      <div class="cell cell-6">6</div>
-    </div>
-  </section>
+        <p>Пояснення: для цього макета ми використали Flexbox із трьома колонками (дочірніми flex-елементами) і задали висоту центрального блока, щоб отримати вертикально витягнутий елемент згідно з ілюстрацією.</p>
 
-  <!-- --- Кінець документа --- -->
-  <footer style="margin-top:18px; font-size:0.9rem; color:#666;">
-    Готово — у файлі <code>style.css</code> знаходяться більшість стилів. Перевірте відображення у різних браузерах.
-  </footer>
+        <!-- ==============================
+             Доп. показ: селектори (клас, id, тег) — короткий приклад в тексті
+             ============================== -->
+        <div class="task-title">Додатково: використані селектори</div>
+        <ul>
+            <li>Селектор по тегу: <code>body, h1, p</code></li>
+            <li>Селектор по класу: <code>.custom-marker, .flex-layout</code></li>
+            <li>Селектор по id: <code>#main-container, #fixed-btn</code></li>
+        </ul>
+
+    </section>
+
+    <!-- Вставимо невеликий <script> тільки для демонстрації роботи фіксованої кнопки -->
+    <script>
+        document.getElementById('fixed-btn').addEventListener('click', () => {
+            alert('Це фіксована кнопка (position: fixed).');
+        });
+    </script>
 </body>
 </html>

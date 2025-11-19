@@ -1,157 +1,134 @@
-/* style.css — зовнішня таблиця стилів
-   Тут реалізовано більшість прикладів: селектори, float, позиціонування, маркери, flexbox */
+/* Файл: style.css
+   Задача: зовнішні стилі (підключені у index.html)
+*/
 
-/* --- Селектори: тег, клас, id --- */
-/* селектор тега p (впливає на всі абзаци) */
-p { line-height: 1.5; }
-
-/* селектор класу */
-.highlight {
-  background:#fff1b8;
-  padding:8px;
-  border:1px dashed #ffd166;
+/* ========== Список з власним маркером (ЗАВДАННЯ 3) ========== */
+ul.custom-marker {
+    list-style: none; /* прибираємо стандартні маркери */
+    padding-left: 0;
+}
+ul.custom-marker li {
+    padding: 6px 8px;
+    margin: 6px 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.05) inset;
 }
 
-/* селектор id */
-#uniqueBox {
-  padding:8px;
-  border-radius:4px;
-  border:1px solid #d6c9a0;
-  background:#fffaf0;
-  width:fit-content;
+/* CSS-генерований маркер: використовуємо ::before */
+ul.custom-marker li::before {
+    content: "";
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: navy;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 2px;
+    box-shadow: 0 0 0 3px rgba(0,0,0,0.03);
 }
 
-/* --- Позиціонування --- */
-.pos-wrapper {
-  position: relative; /* контейнер для абсолютного позиціонування */
-  border:1px solid #e0d4b0;
-  padding:18px;
-  height:120px;
-  margin-top:10px;
-  background:#fff;
-}
-
-.pos-relative {
-  position:relative;
-  margin-bottom:6px;
-  font-weight:600;
-}
-
-.pos-absolute {
-  position:absolute;
-  top:38px;
-  left:18px;
-  background:#cfe8ff;
-  padding:6px 10px;
-  border-radius:4px;
-  border:1px solid #8fb7ff;
-}
-
-/* fixed приклад */
-.fixed-box {
-  position: fixed;
-  right: 12px;
-  bottom: 12px;
-  background: #fff7e6;
-  border:1px solid #f0c27b;
-  padding:6px 10px;
-  border-radius:6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-}
-
-/* --- Float (обтікання) --- */
+/* ========== FLOAT приклад (ЗАВДАННЯ 4) ========== */
 .float-img {
-  float:left;
-  margin-right:12px;
-  margin-bottom:8px;
-  width:140px;
-  height:auto;
-  border:1px solid #ddd;
-  display:block;
+    float: left; /* зліва обтікання текстом */
+    margin: 6px 12px 12px 0;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #eee;
+    border-radius: 4px;
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+/* clearfix після float */
+.clearfix {
+    clear: both;
 }
 
-/* --- Список: власні маркери --- */
-
-/* 1) list-style-image (якщо є marker.png у тій же папці) */
-.custom-marker-image {
-  list-style-image: url('marker.png'); /* якщо маркеру нема — браузер покаже стандартний */
-  margin-left: 18px;
+/* ========== Позиціонування (ЗАВДАННЯ 5) ========== */
+.position-demo .rel-box {
+    position: relative; /* контейнер для абсолютного елемента */
+    border: 1px dashed #bbb;
+    padding: 14px;
+    margin-bottom: 12px;
+    background: #fffef8;
+    min-height: 80px;
 }
 
-/* 2) ::marker з emoji (працює в сучасних браузерах) */
-.custom-marker-emoji {
-  list-style: none;
-  padding-left: 0;
-}
-.custom-marker-emoji li::marker {
-  content: "■ "; /* або emoji: "🔹 " */
-  color: #092b6a;
-  font-weight: 700;
-  font-size: 1.0em;
+.position-demo .rel-box .abs-box {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #ffd;
+    border: 1px solid #d1c08c;
+    padding: 6px 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
-/* 3) псевдоелемент ::before для повного контролю */
-.custom-marker-box { list-style: none; padding-left: 0; }
-.custom-marker-box li {
-  position: relative;
-  padding-left: 26px;
-  margin:6px 0;
-}
-.custom-marker-box li::before {
-  content: "";
-  width:12px;
-  height:12px;
-  display:inline-block;
-  position:absolute;
-  left:6px;
-  top:6px;
-  background:#08256b;
-  border-radius:2px;
+/* fixed кнопка */
+#fixed-btn {
+    position: fixed;
+    right: 12px;
+    bottom: 12px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    background: #0b66c3;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(11,102,195,0.2);
 }
 
-/* --- Flexbox: контейнер згідно з малюнком --- */
-.flex-grid {
-  display:flex;
-  flex-wrap: wrap;
-  width:360px;               /* можна змінити під потрібний розмір */
-  gap:14px;
-  background:#fff;
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:6px;
+/* ========== Flexbox макет (ЗАВДАННЯ 6) ========== */
+/* контейнер — вирівнюємо колонки */
+.flex-layout {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start; /* верхнє вирівнювання колонок */
+    margin: 12px 0 20px;
 }
 
-/* Базові стилі "клітинок" */
-.cell {
-  background:#081a66; /* темно-синій */
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  border-radius:4px;
+/* колонка — вертикальна осередок для блоків */
+.flex-layout .col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    flex: 1 1 0; /* кожна колонка займає приблизно рівну ширину */
+    min-width: 80px;
 }
 
-/* Позиціонування елементів використовується через order */
-/* Верхній ряд: ліво, центр (високий), право */
-.cell-1 { order:1; width:100px; height:100px; }
-.cell-2 { order:2; width:100px; /* поєднаємо висоту через клас .tall */ }
-.cell-2.tall { height:220px; /* високий центр */ align-self:flex-start; }
-.cell-3 { order:3; width:100px; height:100px; }
+/* маленькі квадрати */
+.square {
+    width: 80px;
+    height: 80px;
+    background: navy;
+    border: 4px solid #0b2b6a;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.15) inset;
+}
 
-/* Нижній ряд: три квадрати */
-.cell-4 { order:4; width:100px; height:100px; }
-.cell-5 { order:5; width:100px; height:100px; }
-.cell-6 { order:6; width:100px; height:100px; }
+/* деякі квадрати менші (використано для вторинних позицій) */
+.square.small {
+    width: 70px;
+    height: 70px;
+}
 
-/* Якщо ширина контейнера зміниться, елементи поводитимуться адаптивно за flex-wrap */
+/* вертикально витягнутий прямокутник в центрі (tall) */
+.tall-rect {
+    width: 80px;
+    height: 190px; /* витягнута висота */
+    background: navy;
+    border: 4px solid #0b2b6a;
+    border-radius: 2px;
+}
 
-/* Дрібні поліпшення для читабельності */
-section h2 { margin:0 0 8px 0; font-size:1.05rem; color:#0c3a6b; }
-.note { color:#666; font-size:0.92rem; margin-bottom:8px; }
+/* Адаптація для вузьких екранів — колонки під один рядок або в стовпчик */
+@media (max-width: 600px) {
+    .flex-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Невеликі декоративні налаштування загального вигляду сторінки */
+#main-container { max-width: 980px; margin: 0 auto; }
