@@ -1,5 +1,4 @@
-/* Виконання завдання: зовнішня таблиця стилів */
-
+/* Контейнер Flexbox */
 .flex-container {
     width: 350px;
     margin-top: 30px;
@@ -9,16 +8,19 @@
     gap: 15px;
 }
 
+/* Звичайний квадрат */
 .box {
     width: 100px;
     height: 100px;
     background: navy;
 }
 
+/* Високий елемент */
 .tall {
     height: 220px;
 }
 
+/* Розділювач між рядами */
 .spacer {
     width: 100%;
     height: 10px;
