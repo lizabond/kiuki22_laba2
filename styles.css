@@ -1,102 +1,23 @@
-/* ============ Завдання 1 — зовнішній стиль ============ */
-#external-style-text {
-    color: purple;
-    font-style: italic;
-}
-
-/* ============ Завдання 2 — селектори ============ */
-
-/* селектор тегу */
-span {
-    color: red;
-}
-
-/* селектор класу */
-.selector-box {
-    background: lightblue;
-    padding: 10px;
-    margin: 5px 0;
-}
-
-/* селектор id */
-#selector-id {
-    background: lightgreen;
-    padding: 10px;
-    margin: 5px 0;
-}
-
-/* виділення тексту */
-.highlight {
-    background: yellow;
-}
-
-
-/* ============ Завдання 3 — власний маркер ============ */
-
-.custom-list li {
-    list-style: none;
-    padding-left: 25px;
-    background: url('https://cdn-icons-png.flaticon.com/512/32/32195.png') no-repeat left center;
-    background-size: 18px;
-    margin: 4px 0;
-}
-
-
-/* ============ Завдання 4 — position ============ */
-
-.position-example {
-    width: 200px;
-    height: 50px;
-    background: orange;
-    position: absolute;
-    top: 500px;
-    left: 50px;
-    padding: 10px;
-}
-
-
-/* ============ Завдання 5 — float ============ */
-
-.float-img {
-    float: left;
-    margin: 10px;
-    border: 2px solid #000;
-}
-
-
-/* ============ Завдання 6 — Flexbox (рисунок із завдання) ============ */
-
-.flex-layout.img-layout {
+.flex-container {
+    width: 350px;
+    margin-top: 30px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 40px 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
 }
 
-/* Колонки */
-.flex-layout.img-layout .col {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Центральна колонка */
-.flex-layout.img-layout .col-center {
-    display: flex;
-    align-items: center;
-}
-
-/* Квадрати */
-.sq {
-    width: 120px;
-    height: 120px;
+.box {
+    width: 100px;
+    height: 100px;
     background: navy;
 }
 
-/* Великий вертикальний прямокутник */
-.rect-big {
-    width: 120px;
-    height: 260px;
-    background: navy;
+.tall {
+    height: 220px;
+}
+
+.spacer {
+    width: 100%;
+    height: 10px;
 }

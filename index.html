@@ -2,89 +2,110 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна робота — CSS</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Лабораторна робота CSS</title>
+
+    <!-- Підключення зовнішнього CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Стилі у секції <style> -->
+    <style>
+        .title {
+            color: darkblue;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Власний маркер списку */
+        ul.custom-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.custom-list li {
+            margin: 6px 0;
+            padding-left: 25px;
+            background-image: url("marker.png");
+            background-size: 18px;
+            background-repeat: no-repeat;
+            background-position: 0 3px;
+        }
+
+        /* Елемент з абсолютним позиціонуванням */
+        #abs-box {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgb(255, 230, 140);
+            padding: 10px;
+            border: 2px solid orange;
+        }
+
+        /* Float елементи */
+        .float-img {
+            float: left;
+            width: 150px;
+            margin: 0 15px 10px 0;
+        }
+
+        .float-text {
+            overflow: auto;
+        }
+    </style>
 </head>
-<body>
 
-<h1>Лабораторна робота з CSS</h1>
+<body style="background: #f7e4b0;"> <!-- inline стиль -->
 
-<!-- ================== Завдання 1 ================== -->
-<h2>Завдання 1 — способи підключення CSS</h2>
+    <div id="abs-box">Абсолютне позиціонування</div>
 
-<p style="color: darkblue;">Це приклад inline-стилю (атрибут style).</p>
+    <h1 class="title">Демонстрація CSS</h1>
 
-<style>
-    .internal-style-text {
-        font-weight: bold;
-        color: green;
-    }
-</style>
+    <!-- Пункт 2.3 Порядок виконання -->
+    <h2>2.3 Порядок виконання роботи</h2>
+    <p>
+        Створити HTML-документ із довільним вмістом, на якому демонструється використання CSS.
+        Передбачити використання блокових та рядкових елементів.
+    </p>
+    <p>
+        Показати такі способи підключення стилів:
+    </p>
+    <ul>
+        <li>inline-опис стилю (атрибут <code>style</code>);</li>
+        <li>використання контейнера <code>&lt;style&gt;</code> у секції head;</li>
+        <li>підключення зовнішнього CSS-файлу.</li>
+    </ul>
 
-<p class="internal-style-text">Це приклад стилю всередині &lt;style&gt;.</p>
+    <p>Використати селектори тегів, класів та ідентифікаторів.</p>
+    <p>Додати елемент із використанням <b>position</b>.</p>
+    <p>Додати елементи з використанням <b>float</b>.</p>
+    <p>Додати елементи згідно варіанту.</p>
+    <p>Перевірити відображення сторінки у різних браузерах.</p>
 
-<p id="external-style-text">Це приклад стилю із зовнішнього CSS-файлу.</p>
+    <h2>Список з власним маркером</h2>
+    <ul class="custom-list">
+        <li>Перший пункт</li>
+        <li>Другий пункт</li>
+        <li>Третій пункт</li>
+    </ul>
 
+    <h2>Float елементи</h2>
+    <img class="float-img" src="https://via.placeholder.com/150/0000AA/ffffff?text=Фото">
+    <p class="float-text">
+        Це текст, який обтікає картинку. Властивість float дозволяє розташувати елемент з одного боку,
+        а текст автоматично обтікатиме його. Дуже зручно для статей, новин, блогів.
+    </p>
 
-<!-- ================== Завдання 2 ================== -->
-<h2>Завдання 2 — селектори</h2>
+    <h2>Flexbox фігура (як на зображенні)</h2>
+    <div class="flex-container">
+        <div class="box"></div>
+        <div class="box tall"></div>
+        <div class="box"></div>
 
-<div class="selector-box">Блок зі стилем за класом</div>
-<div id="selector-id">Блок зі стилем за ідентифікатором</div>
-<p>Форматований <span class="highlight">текст</span> зі стилем для тегу.</p>
+        <div class="spacer"></div>
 
-
-<!-- ================== Завдання 3 ================== -->
-<h2>Завдання 3 — власний маркер списку</h2>
-
-<ul class="custom-list">
-    <li>Перший пункт</li>
-    <li>Другий пункт</li>
-    <li>Третій пункт</li>
-</ul>
-
-
-<!-- ================== Завдання 4 ================== -->
-<h2>Завдання 4 — position</h2>
-
-<div class="position-example">
-    Абсолютно позиціонований елемент
-</div>
-
-
-<!-- ================== Завдання 5 ================== -->
-<h2>Завдання 5 — float</h2>
-
-<img src="https://via.placeholder.com/150" class="float-img" alt="">
-<p>
-    Це приклад обтікання текстом зображення. Зображення зліва, а текст обтікає його,
-    демонструючи роботу float.
-</p>
-
-
-<!-- ================== Завдання 6 ================== -->
-<h2>Завдання 6 — контейнер з елементами (Flexbox)</h2>
-
-<div class="flex-layout img-layout">
-    <!-- Ліва колонка -->
-    <div class="col">
-        <div class="sq"></div>
-        <div class="sq"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
     </div>
-
-    <!-- Центральний елемент -->
-    <div class="col-center">
-        <div class="rect-big"></div>
-    </div>
-
-    <!-- Права колонка -->
-    <div class="col">
-        <div class="sq"></div>
-        <div class="sq"></div>
-    </div>
-</div>
-
 
 </body>
 </html>
