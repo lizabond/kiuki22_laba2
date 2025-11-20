@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LB2_NewVersion</title>
 
-    <!-- Внутрішній стиль -->
+    <!-- INTERNAL STYLE -->
     <style>
         .inner-box {
             background: #f0ffe0;
@@ -16,20 +16,23 @@
         }
     </style>
 
-    <!-- Підключення зовнішнього CSS -->
+    <!-- EXTERNAL CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- Inline стиль -->
-    <p style="color: purple; font-size: 18px; font-weight: bold;">
-        Це параграф, оформлений <strong>вбудованим (inline) стилем</strong>.
-    </p>
+    <!-- FIXED BUTTON -->
+    <div class="floating-btn">Привіт</div>
 
-    <!-- Internal стиль -->
+    <!-- Inline стиль 
+    <h3 style="color: darkblue; background-color: #e0f7fa; padding: 8px; border-radius: 5px;">
+        Заголовок із inline-стилем
+    </h3>
+
+    <!-- Internal стиль 
     <div class="inner-box">
-        Цей блок стилізований через тег <strong>style</strong> у head.
+        Цей блок стилізований через контейнер <strong>&lt;style&gt;</strong> у секції head.
     </div>
 
     <!-- External стиль -->
@@ -38,39 +41,34 @@
     </div>
 
     <!-- FLOAT -->
-    <h2>Обтікання зображення (float)</h2>
+    <h2>Обтікання зображення</h2>
 
     <div class="float-wrap">
-        <img src="small.png" alt="image" class="float-img">
+        <div class="float-img"></div>
+        
         <p>
-            Це текст, який обтікає зображення справа. Властивість <b>float</b> дозволяє
-            вирівняти елемент, а сусідні елементи обтекають його. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Cras vel mauris quis nisi aliquam cursus.
+            За допомогості float елемент вирівнюється праворуч, 
+            а текстовий вміст обтікає його зліва. Цей метод часто застосовують для 
+            розміщення ілюстрацій, фотографій або бокових панелей.
         </p>
         <p>
-            Morbi vitae sodales nunc. Vestibulum ante ipsum primis in faucibus orci luctus et
-            ultrices posuere cubilia curae; Integer condimentum euismod sem.
+            Обтікання дозволяє ефективно використовувати простір сторінки, створюючи 
+            органічні та візуально привабливі макети.
         </p>
     </div>
 
-    <!-- POSITION -->
-    <div class="pos-parent">
-        Батьківський блок із position: relative.
-        <div class="pos-child">
-            Це абсолютний елемент (absolute), який позиціонується зверху справа.
-        </div>
-    </div>
+  
 
     <!-- CUSTOM LIST -->
-    <h2>Нестандартний список</h2>
+    <h2>Список із маркером</h2>
     <ul class="nice-list">
-        <li>Елемент один</li>
-        <li>Елемент два</li>
-        <li>Елемент три</li>
+        <li>Рішення 1</li>
+        <li>Рішення 2</li>
+        <li>Рішення 3</li>
     </ul>
 
     <!-- FLEXBOX -->
-    <h2>Flexbox макет</h2>
+    <h2>Контейнер</h2>
 
     <div class="flex-container">
         <div class="flex-row">

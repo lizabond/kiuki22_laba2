@@ -4,15 +4,25 @@ body {
     margin: 20px;
 }
 
+/* INTERNAL-STYLE BLOCK */
+.inner-box {
+    background: #e0f3ff; /* блакитний */
+    padding: 12px;
+    border: 2px dashed #6a9c43;
+    margin: 20px 0;
+    font-style: italic;
+}
+
 /* External стилізація блоку */
 .external-block {
-    background: #ffffff;
+    background: #e0f3ff; /* блакитний */
     padding: 18px;
     border-left: 5px solid #3c8dbc;
     margin-bottom: 25px;
 }
 
-/* FLOAT */
+
+/* FLOAT (обтікання зображення) */
 .float-wrap {
     border: 1px solid #bbb;
     padding: 15px;
@@ -23,33 +33,13 @@ body {
 .float-img {
     float: right;
     width: 160px;
-    height: auto;
-    border: 2px solid #3c8dbc;
+    height: 120px;
+    background: #3c8dbc;
     margin-left: 15px;
     margin-bottom: 10px;
+    border: 2px solid #3c8dbc;
 }
 
-/* ABSOLUTE + RELATIVE */
-.pos-parent {
-    position: relative;
-    background: #e6e6e6;
-    padding: 20px;
-    height: 180px;
-    border: 2px solid #777;
-    margin-top: 25px;
-}
-
-.pos-child {
-    position: absolute;
-    right: 20px;
-    top: 25px;
-    background: #ff5757;
-    color: #fff;
-    padding: 12px;
-    width: 160px;
-    text-align: center;
-    border-radius: 5px;
-}
 
 /* CUSTOM LIST */
 .nice-list {
@@ -64,7 +54,7 @@ body {
 }
 
 .nice-list li::before {
-    content: "★";
+    content: "🔷";
     position: absolute;
     left: 0;
     top: 0;
@@ -74,26 +64,47 @@ body {
 
 /* FLEXBOX */
 .flex-container {
-    width: 95%;
-    max-width: 520px;
-    background: #f0f0ff;
-    padding: 15px;
-    margin: 25px auto;
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 10px;
+    margin: 20px auto;
+    box-sizing: border-box;
 }
 
 .flex-row {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .box {
-    width: 130px;
-    height: 130px;
-    background: #5a5ad1;
-    border: 2px solid white;
+    width: 140px;
+    height: 140px;
+    background: #000080;
+    border: 1px solid #ffffff;
 }
 
 .box.tall {
     height: 300px;
+}
+
+/* FIXED BUTTON */
+.floating-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #0000ff;
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+
+.floating-btn:hover {
+    background: #d63f3f;
+    transform: scale(1.05);
 }
